@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Article Update</h1>
+    <form action="{{ article.get_update_url }}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">확인</button>
+    </form>
+{% endblock %}

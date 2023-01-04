@@ -1,0 +1,13 @@
+<div>
+    <a href="{% url 'index' %}"><span>Home</span></a>
+    <a href="{{ user.get_absolute_url }}">MyPage</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'accounts:signout' %}"><span>로그아웃</span></a>
+        {% else %}
+        <a href="{% url 'accounts:signin' %}"><span>로그인</span></a>
+        <a href="{% url 'accounts:signup' %}"><span>회원가입</span></a>
+
+    {% endif %}
+
+
+</div>

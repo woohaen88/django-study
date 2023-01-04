@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div>User : {{ user }}</div>
+    <div>request: {{ request.user }}</div>
+
+    <a href="{% url 'articles:create' %}">포스트 생성</a>
+    <hr>
+    {% for article in articles %}
+        <div><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></div>
+    {% endfor %}
+
+
+{% endblock %}

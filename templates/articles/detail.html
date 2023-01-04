@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div>
+
+
+    {% if article.author == request.user %}
+    유져인증이 된다면: <a href="{{ article.get_update_url }}">수정</a>
+    <hr>
+    {% endif %}
+
+
+<p>{{ article.created_dt|date:"Y-m-d" }}</p>
+
+    <p>저자: {{ article.author.username }}</p>
+<h1>{{ article.title }}</h1>
+
+<h1>{{ article.content }}</h1>
+
+    <hr>
+
+<div>
+    <a href="{{ article.get_delete_url }}">삭제</a>
+</div>
+
+    <hr>
+{% include 'comment/create.html' with article=article%}
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div>
+<p>{{ user.created_dt|date:"Y-m-d" }}</p>
+<h2>{{ user.username }}</h2>
+user: {{ user }}
+request.user {{ request.user }}
+
+{% if user == request.user %}
+
+    {% if user.profile %}
+        {{ user.profile.nickname }}
+        <a href="{{ user.profile.get_update_url }}">프로필수정</a>
+    {% else %}
+        <a href="{% url 'profiles:create' %}">프로필만들기</a>
+    {% endif %}
+
+    <a href="{{ user.get_update_url }}">
+    <p>
+    change info
+    </p>
+    </a>
+
+    <a href="{{ user.get_delete_url }}">
+    <p>
+    탈퇴
+    </p>
+    </a>
+
+{% endif %} 
+</div>
+{% endblock %}

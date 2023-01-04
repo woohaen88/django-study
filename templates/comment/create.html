@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block content %}
+<h1>Comment Creation</h1>
+    <form action="{% url 'comment:create' %}" enctype="multipart/form-data" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">확인</button>
+    </form>
+{% endblock %}

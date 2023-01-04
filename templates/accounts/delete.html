@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<h4>탈퇴</h4>
+    <form action="{{ user.get_delete_url }}" method="post">
+    {% bootstrap_form form %}
+        <button type="submit">확인</button>
+    {% csrf_token %}
+
+    </form>
+{% endblock %}
